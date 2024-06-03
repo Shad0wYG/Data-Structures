@@ -398,6 +398,3 @@ FodyWeavers.xsd
 *.sln.iml
 
 
-*.vcxproj
-MasterStructures.user
-MasterStructures.filters
