@@ -1,0 +1,6 @@
+1, 9.9, Alpha,
+2, 9.9, Beta Charlie Delta,
+3, 9.9, Echo Foxtrot,
+4, 9.9, Golf Hotel India Juliet Kilo,
+5, 9.9, Lima Mike,
+6, 9.9, November,
