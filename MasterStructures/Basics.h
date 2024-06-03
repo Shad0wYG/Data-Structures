@@ -1,4 +1,9 @@
 #pragma once
+#include <stdio.h>
+#include <stdlib.h>
+#include <malloc.h>
+#include <string.h>
+#include "Basics.h"
 
 
 #pragma region Basic Definitions and File Reading
@@ -99,6 +104,28 @@ void printSListForwards(SLNode* head)
 	{
 		printInfo(head->info);
 		head = head->next;
+	}
+}
+
+void deleteNode(SLNode** node)
+{
+	free((*node)->info->name);
+	free((*node)->info);
+	free(*node);
+	(*node) = NULL;
+}
+
+void deleteSL(SLNode** head)
+{
+	while (*head)
+	{
+		SLNode* tmp = (*head);
+		(*head) = tmp->next;
+		//deleteNode(tmp);
+		free(tmp->info->name);
+		free(tmp->info);
+		free(tmp);
+		//tmp = NULL;
 	}
 }
 

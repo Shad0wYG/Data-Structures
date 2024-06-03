@@ -21,4 +21,5 @@ int main()
 	}
 
 	printSListForwards(head);
+	deleteSL(&head);
 }
