@@ -1,0 +1,18 @@
+Hi, this is unrelated to the code itself, just making this to keep track of stuff I've done (marked with //)
+and stuff I should be doing! 
+
+Simple Lists:
+- Create structure and node //
+- Read //
+- Print //
+- Free memory //
+- Make it circular and print it 
+
+Double Lists:
+- Create structure and node //
+- Read 
+- Print 
+- Free memory 
+- Make it circular and print it 
+
+Hash Tables: 

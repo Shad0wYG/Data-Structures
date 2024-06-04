@@ -23,6 +23,7 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="Data.txt" />
+    <Text Include="Tasks.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Basics.h" />

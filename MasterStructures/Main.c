@@ -21,5 +21,5 @@ int main()
 	}
 
 	printSListForwards(head);
-	deleteSL(&head);
+	//deleteSL(&head);      <- does work but commenting it out to keep the structure
 }

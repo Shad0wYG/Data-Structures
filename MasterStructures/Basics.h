@@ -20,7 +20,8 @@ typedef struct Info Info;
 Info* createInfo()
 {
 	Info* tmp = (Info*)malloc(sizeof(Info));
-	//tmp->name = (char*)malloc(sizeof(char) * 256); //maybe realloc later
+	//tmp->name = (char*)malloc(sizeof(char)); //maybe realloc later
+	return tmp;
 }
 
 void printInfo(Info* info)
@@ -61,7 +62,7 @@ Info* readOneInfo(FILE* f)
 	tmp->id = atoi(token);
 
 	token = strtok(NULL, " ,\n");
-	tmp->name = (char*)malloc(sizeof(char) * strlen(token));
+	tmp->name = (char*)malloc(sizeof(char) * strlen(token) + 1);
 	strcpy(tmp->name, token);
 
 	token = strtok(NULL, " ,\n");
@@ -80,7 +81,9 @@ Info* readOneInfo(FILE* f)
 SLNode* createEmptyNode()
 {
 	SLNode* tmp = (SLNode*)malloc(sizeof(SLNode));
-	tmp->info = tmp->next = NULL;
+	tmp->info = NULL;
+	tmp->next = NULL;
+	return tmp;
 }
 
 SLNode* createNode(Info* info)
@@ -88,6 +91,7 @@ SLNode* createNode(Info* info)
 	SLNode* tmp = (SLNode*)malloc(sizeof(SLNode));
 	tmp->info = info;
 	tmp->next = NULL;
+	return tmp;
 }
 
 SLNode* SLInsertStart(SLNode* head, Info* info)
@@ -121,11 +125,8 @@ void deleteSL(SLNode** head)
 	{
 		SLNode* tmp = (*head);
 		(*head) = tmp->next;
-		//deleteNode(tmp);
-		free(tmp->info->name);
-		free(tmp->info);
-		free(tmp);
-		//tmp = NULL;
+		deleteNode(&tmp);
+		tmp = NULL;
 	}
 }
 

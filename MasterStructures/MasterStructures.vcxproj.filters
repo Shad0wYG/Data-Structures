@@ -23,6 +23,9 @@
     <Text Include="Data.txt">
       <Filter>Resource Files</Filter>
     </Text>
+    <Text Include="Tasks.txt">
+      <Filter>Resource Files</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Basics.h">
