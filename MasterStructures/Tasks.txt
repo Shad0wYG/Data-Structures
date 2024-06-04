@@ -19,10 +19,15 @@ bonuses: same as SL
 
 Hash Tables: 
 a) Collision avoidance methods
-	- Chaining: Using a list to put multiple elements on the same hash position
+	- Chaining: Using a list to put multiple elements on the same hash position //
 	- Re-hashing: Using (a) different hash function(s) if there is a collision 
 	- Linear probing: collision? move +1 / -1 until you find a free spot
 	- Quadratic probing: collision? move c*((nr it)^2) + or - until you find a free spot
 	- Overflow area: Splitting the hash into two, the main storing area and the overflow area where you store collisions and
 			in the main area you have a pointer to the position of the collision in the overflow area (or sth like that)
-b) 
+
+- Create structure and node //
+- Read //
+- Print //
+- Seek element by key //
+- Free memory //
