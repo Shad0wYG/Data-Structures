@@ -3,7 +3,6 @@
 #include <stdlib.h>
 #include <malloc.h>
 #include <string.h>
-#include "Basics.h"
 
 
 #pragma region Basic Definitions and File Reading
@@ -99,7 +98,7 @@ SLNode* createEmptyNode()
 SLNode* createNode(Info* info)
 {
 	SLNode* tmp = (SLNode*)malloc(sizeof(SLNode));
-	tmp->info = info;
+	tmp->info = deepCopyInfo(info);
 	tmp->next = NULL;
 	return tmp;
 }
@@ -149,7 +148,7 @@ DLNode* createDLNode(Info* info)
 {
 	DLNode* tmp = (DLNode*)malloc(sizeof(DLNode));
 	tmp->info = (Info*)malloc(sizeof(Info)); //rev
-	tmp->info = info;
+	tmp->info = deepCopyInfo(info);
 	tmp->next = NULL;
 	tmp->prev = NULL;
 	return tmp;

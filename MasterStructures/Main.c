@@ -13,7 +13,6 @@ int main()
 	Info* curr;
 
 	SLNode* headSL = NULL;
-
 	DList dlist = { .head = NULL, .tail = NULL };
 
 	while (!feof(f))
@@ -23,16 +22,16 @@ int main()
 		headSL = SLInsertStart(headSL, curr);
 		dlist.head = DLInsertStart(dlist.head, curr);
 		if (dlist.head->next == NULL) 
-			dlist.tail = dlist.head; //shouldn't i allocate memory for tail here? i mean it works but...
+			dlist.tail = dlist.head; //shouldn't i allocate memory here? i mean it works but...
 
 	}
 	
 	//printSList(headSL);
-	printDListForwards(dlist.head);
-	printf("\n\n");
-	printDListBackwards(dlist.tail);
+	//printDListForwards(dlist.head);
+	//printf("\n\n");
+	//printDListBackwards(dlist.tail);
 
 
-	//deleteSL(&headSL); 
-	//deleteDL(&dlist.head);
+	deleteSL(&headSL); 
+	deleteDL(&dlist.head);
 }

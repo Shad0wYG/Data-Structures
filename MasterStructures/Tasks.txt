@@ -16,8 +16,13 @@ Double Lists:
 - Free memory //
 bonuses: same as SL
 
-*Ok so currently I cant delete both SL and DL and idk why, I'm assuming I must've done a shallow copy somewhere, idrk
-but separately they work :shrug:
-
 
 Hash Tables: 
+a) Collision avoidance methods
+	- Chaining: Using a list to put multiple elements on the same hash position
+	- Re-hashing: Using (a) different hash function(s) if there is a collision 
+	- Linear probing: collision? move +1 / -1 until you find a free spot
+	- Quadratic probing: collision? move c*((nr it)^2) + or - until you find a free spot
+	- Overflow area: Splitting the hash into two, the main storing area and the overflow area where you store collisions and
+			in the main area you have a pointer to the position of the collision in the overflow area (or sth like that)
+b) 
