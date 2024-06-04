@@ -6,13 +6,18 @@ Simple Lists:
 - Read //
 - Print //
 - Free memory //
-- Make it circular and print it 
+bonuses: insert at the end of the list / make it circular and print it / sort the list (really tough btw) / convert to array
+
 
 Double Lists:
 - Create structure and node //
-- Read 
-- Print 
-- Free memory 
-- Make it circular and print it 
+- Read //
+- Print //
+- Free memory //
+bonuses: same as SL
+
+*Ok so currently I cant delete both SL and DL and idk why, I'm assuming I must've done a shallow copy somewhere, idrk
+but separately they work :shrug:
+
 
 Hash Tables: 

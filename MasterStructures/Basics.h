@@ -29,6 +29,16 @@ void printInfo(Info* info)
 	printf("Int: %d, String: %s, Double: %5.2lf, Letter: %c\n", info->id, info->name, info->nonInt, info->letter);
 }
 
+Info* deepCopyInfo(Info* inf)
+{
+	Info* tmp = createInfo();
+	tmp->id = inf->id;
+	tmp->name = (char*)malloc( sizeof(char) * (strlen(inf->name) + 1) );
+	strcpy(tmp->name, inf->name);
+	tmp->nonInt = inf->nonInt;
+	tmp->letter = inf->letter;
+}
+
 //SL
 typedef struct SLNode {
 	Info* info;
@@ -102,7 +112,7 @@ SLNode* SLInsertStart(SLNode* head, Info* info)
 }
 
 
-void printSListForwards(SLNode* head)
+void printSList(SLNode* head)
 {
 	while (head)
 	{
@@ -126,7 +136,7 @@ void deleteSL(SLNode** head)
 		SLNode* tmp = (*head);
 		(*head) = tmp->next;
 		deleteNode(&tmp);
-		tmp = NULL;
+		//tmp = NULL; <- i was told this would break it if it isnt here but it seems to work without
 	}
 }
 
@@ -134,5 +144,64 @@ void deleteSL(SLNode** head)
 
 
 #pragma region Utilities - DL
+
+DLNode* createDLNode(Info* info)
+{
+	DLNode* tmp = (DLNode*)malloc(sizeof(DLNode));
+	tmp->info = (Info*)malloc(sizeof(Info)); //rev
+	tmp->info = info;
+	tmp->next = NULL;
+	tmp->prev = NULL;
+	return tmp;
+}
+
+//extra: do it as a void function with DLNode** head
+DLNode* DLInsertStart(DLNode* head, Info* inf)
+{
+	DLNode* tmp = createDLNode(inf);
+	tmp->next = head;
+	if (head)
+	{
+		head->prev = tmp;
+	}
+	return tmp;
+}
+
+void printDListForwards(DLNode* head)
+{
+	while (head)
+	{
+		printInfo(head->info);
+		head = head->next;
+	}
+}
+
+void printDListBackwards(DLNode* tail) 
+{
+	while (tail)
+	{
+		printInfo(tail->info);
+		tail = tail->prev;
+	}
+}
+
+
+void deleteDLNode(DLNode** node)
+{
+	free((*node)->info->name);
+	free((*node)->info);
+	free(*node);
+	(*node) = NULL;
+}
+
+void deleteDL(DLNode** head)
+{
+	while (*head)
+	{
+		DLNode* tmp = (*head);
+		(*head) = (*head)->next;
+		deleteDLNode(&tmp);
+	}
+}
 
 #pragma endregion

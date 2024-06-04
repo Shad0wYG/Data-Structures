@@ -12,14 +12,27 @@ int main()
 	if (!f) return -1;
 	Info* curr;
 
-	SLNode* head = NULL;
+	SLNode* headSL = NULL;
+
+	DList dlist = { .head = NULL, .tail = NULL };
 
 	while (!feof(f))
 	{
 		curr = readOneInfo(f);
-		head = SLInsertStart(head, curr);
-	}
 
-	printSListForwards(head);
-	//deleteSL(&head);      <- does work but commenting it out to keep the structure
+		headSL = SLInsertStart(headSL, curr);
+		dlist.head = DLInsertStart(dlist.head, curr);
+		if (dlist.head->next == NULL) 
+			dlist.tail = dlist.head; //shouldn't i allocate memory for tail here? i mean it works but...
+
+	}
+	
+	//printSList(headSL);
+	printDListForwards(dlist.head);
+	printf("\n\n");
+	printDListBackwards(dlist.tail);
+
+
+	//deleteSL(&headSL); 
+	//deleteDL(&dlist.head);
 }
