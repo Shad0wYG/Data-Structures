@@ -70,18 +70,29 @@ void printPostOrder(BSTNode* root)
 }
 
 
-Info* seekInBST(BSTNode* root, char* key)
+Info* seekInBST(BSTNode* root, char letter)
 {
 	if (!root) return NULL;
 
-	else if(strcmp(root->info->name, key) == 0) 
+	else if(letter == root->info->letter) 
 		return deepCopyInfo(root->info);
 
-	else if (root->left)
-		return seekInBST(root->left, key);
+	else if (letter < root->info->letter)
+		return seekInBST(root->left, letter);
 
-	else if (root->right)
-		return seekInBST(root->right, key); 
+	else if (letter > root->info->letter)
+		return seekInBST(root->right, letter);
 	
 
+}
+
+
+void deleteBST(BSTNode** root)
+{
+	if ((*root)->left) deleteBST(&(*root)->left);
+	if ((*root)->right) deleteBST(&(*root)->right);
+	free((*root)->info->name);
+	free((*root)->info);
+	free((*root));
+	*root = NULL;
 }

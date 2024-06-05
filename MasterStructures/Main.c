@@ -51,7 +51,7 @@ int main()
 	//free(testSeek);
 
 
-	/*Info* testSeek = seekInBST(root, "Dread");
+	/*Info* testSeek = seekInBST(root, ']');
 	if (testSeek)
 	{
 		printf("\nThe Seeked element is:\n");
@@ -59,10 +59,12 @@ int main()
 		free(testSeek->name);
 		free(testSeek);
 	}
-	else printf("no such elem");
-*/
+	else printf("no such elem");*/
+
 
 	deleteSL(&headSL); 
 	deleteDL(&dlist.head);
 	deleteHT(&hashT);
+	deleteBST(&root);
+	
 }

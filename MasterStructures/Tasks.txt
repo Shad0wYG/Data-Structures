@@ -40,5 +40,5 @@ Binary Search Tree(BST)
 	-inorder : left-root-right //
 	-preorder : root-left-right //
 	-postorder : left-right-root //
-- Seek element by key 
-- Free memory 
+- Seek element by key //
+- Free memory //
