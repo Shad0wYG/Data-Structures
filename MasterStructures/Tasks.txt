@@ -6,7 +6,7 @@ Simple Lists:
 - Read //
 - Print //
 - Free memory //
-bonuses: insert at the end of the list / make it circular and print it / sort the list (really tough btw) / convert to array
+bonuses: seek element / insert at the end of the list / make it circular and print it / sort the list (really tough btw) / convert to array
 
 
 Double Lists:
@@ -31,3 +31,14 @@ a) Collision avoidance methods
 - Print //
 - Seek element by key //
 - Free memory //
+
+
+Binary Search Tree(BST)
+- Create structure and node //
+- Read //
+- Print //
+	-inorder : left-root-right //
+	-preorder : root-left-right //
+	-postorder : left-right-root //
+- Seek element by key 
+- Free memory 

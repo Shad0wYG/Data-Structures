@@ -5,7 +5,7 @@
 #include <string.h>
 #include "Basics.h"
 #include "Hashes.h"
-
+#include "BST.h"
 
 int main()
 {
@@ -16,6 +16,7 @@ int main()
 	SLNode* headSL = NULL;
 	DList dlist = { .head = NULL, .tail = NULL };
 	HT hashT = initTable(26);
+	BSTNode* root = NULL;
 
 	while (!feof(f))
 	{
@@ -27,20 +28,39 @@ int main()
 			dlist.tail = dlist.head; //shouldn't i allocate memory here? i mean it works but...
 		
 		addToHT(hashT, curr);
+		addBSTNode(&root, curr);
 	}
 	
 	//printSList(headSL);
 	//printDListForwards(dlist.head);
 	//printf("\n\n");
 	//printDListBackwards(dlist.tail);
-	printHT(hashT);
+	//printHT(hashT);
 
-	Info* testSeek = seekByKey(hashT, "Pink"); //this is deep-copied, so make sure to free()
-	printf("\nThe Seeked element is:\n");
-	printInfo(testSeek);
-	free(testSeek->name);
-	free(testSeek);
+	printInOrder(root);
+	//printPreOrder(root);
+	//printPostOrder(root);
 
+
+
+	/// This below is for Hash Table 
+	//Info* testSeek = seekByKey(hashT, "Pink"); //this is deep-copied, so make sure to free()
+	//printf("\nThe Seeked element is:\n");
+	//printInfo(testSeek);
+	//free(testSeek->name);
+	//free(testSeek);
+
+
+	/*Info* testSeek = seekInBST(root, "Dread");
+	if (testSeek)
+	{
+		printf("\nThe Seeked element is:\n");
+		printInfo(testSeek);
+		free(testSeek->name);
+		free(testSeek);
+	}
+	else printf("no such elem");
+*/
 
 	deleteSL(&headSL); 
 	deleteDL(&dlist.head);

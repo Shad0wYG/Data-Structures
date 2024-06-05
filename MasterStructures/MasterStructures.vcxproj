@@ -27,6 +27,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Basics.h" />
+    <ClInclude Include="BST.h" />
     <ClInclude Include="Hashes.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">

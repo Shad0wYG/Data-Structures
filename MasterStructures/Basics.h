@@ -19,7 +19,6 @@ typedef struct Info Info;
 Info* createInfo()
 {
 	Info* tmp = (Info*)malloc(sizeof(Info));
-	//tmp->name = (char*)malloc(sizeof(char)); //maybe realloc later
 	return tmp;
 }
 
