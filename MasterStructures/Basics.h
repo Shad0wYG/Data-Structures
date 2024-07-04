@@ -134,7 +134,7 @@ void deleteSL(SLNode** head)
 		SLNode* tmp = (*head);
 		(*head) = tmp->next;
 		deleteNode(&tmp);
-		//tmp = NULL; <- i was told this would break it if it isnt here but it seems to work without
+		tmp = NULL; //<- i was told this would break it if it isnt here but it seems to work without
 	}
 }
 
