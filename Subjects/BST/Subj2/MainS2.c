@@ -19,6 +19,13 @@ typedef struct BST {
 	struct BST* right;
 }BST;
 
+typedef struct HEAP {
+	Info** arr;
+	int currentpos;
+}Heap;
+
+
+
 Info* createInfo(char* id, unsigned int size, bool readOnly, char dateCreated[11], char* ownerName) {
 	Info* ret = (Info*)malloc(sizeof(Info));
 	ret->id= (char*)malloc(sizeof(char) * (strlen(id) + 1));
@@ -143,6 +150,52 @@ void boostSizes(BST** root, char* fileID) {
 }
 
 
+int getCountNodes(BST* root, char* key) {
+	if (root) {
+		if (strcmp(root->info->ownerName, key) == 0)
+			return 1 + getCountNodes(root->left, key) + getCountNodes(root->right, key);
+		else return 0 + getCountNodes(root->left, key) + getCountNodes(root->right, key);
+	}
+	else return 0;
+}
+
+void reheap(Heap* h, int index) {
+
+	if (index > 0) {
+		int pInd = (index - 1) / 2;
+		if (strcmp(h->arr[pInd]->id, h->arr[index]->id) < 0) {
+			Info* aux = h->arr[pInd];
+			h->arr[pInd] = h->arr[index];
+			h->arr[index] = aux;
+			reheap(h, pInd);
+		}
+	}
+
+}
+
+
+void addInfoToHeap(Heap* h, Info* inf){
+	(*h).arr[(*h).currentpos] = inf;
+	reheap(h, (*h).currentpos);
+	(*h).currentpos++;
+
+}
+
+
+void BSTtoHeap(BST* root, Heap* h, char* key) {
+	if (root)
+	{
+		if (strcmp(root->info->ownerName, key) == 0)
+		{
+			Info* inf = createInfo(root->info->id, root->info->size, root->info->readOnly, root->info->dateCreated, root->info->ownerName);
+			addInfoToHeap(h, inf);
+		}
+		BSTtoHeap(root->left, h, key);
+		BSTtoHeap(root->right, h, key);
+	}
+}
+
+
 int main() {
 	FILE* file = fopen("DataS2.txt", "r");
 	if (!file) return -1;
@@ -202,4 +255,11 @@ int main() {
 
 
 	printf("\nEx6: ");
+	int c = getCountNodes(root, "Alberto");
+	Heap heap = { .currentpos = 0 };
+	heap.arr = (Info**)malloc(sizeof(Info*) * c);
+	BSTtoHeap(root, &heap, "Alberto");
+
+	for (int i = 0; i < c; i++) printInfo(heap.arr[i]);
+
 }
