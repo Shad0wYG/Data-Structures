@@ -37,7 +37,7 @@ Fund* createInfo(char* code, char group[2], int rl, double nav, float perc) {
 
 
 void printData(Fund* inf) {
-	printf("Code: %s, Group: %s, Risk: %d, NAV: %.2lf, Percentage return: %.2f\n", inf->code, inf->group, inf->riskLvl, inf->NAV, inf->percentReturn);
+	printf("\nCode: %s, Group: %s, Risk: %d, NAV: %.2lf, Percentage return: %.2f\n", inf->code, inf->group, inf->riskLvl, inf->NAV, inf->percentReturn);
 }
 
 Node* createNode(Fund* info) {
@@ -81,6 +81,46 @@ int getNrRisky(Node* head, int risk) {
 	return c;
 }
 
+void showCapitalGL(Node* tail) {
+	while (tail) {
+		printf("\nFund code: %s, Loss/gain: %.2lf", tail->info->code, tail->info->NAV * tail->info->percentReturn);
+		tail = tail->prev;
+	}
+}
+
+Fund* getFund(Node* head, double nav) {
+	while (head != NULL && head->info->NAV < nav) {
+		head = head->next;
+	}
+
+	if (head == NULL) return createInfo("N/A", "0", 0, 0, 0);
+	else return head->info;
+}
+
+Fund** createArr(Node* head, char group[2], double nav) {
+	Fund** ret;
+	int c = 0;
+	Node* tail = NULL;
+	while (head) {
+		if (strcmp(head->info->group, group) == 0 && head->info->NAV > nav) c++;
+		tail = head;
+		head = head->next;
+	}
+
+	int i = 0;
+	ret = (Fund**)malloc(sizeof(Fund*) * c);
+	if (tail != NULL) {
+		while (tail) {
+			if (strcmp(tail->info->group, group) == 0 && tail->info->NAV > nav) {
+				ret[i++] = createInfo(tail->info->code, tail->info->group, tail->info->riskLvl, tail->info->NAV, tail->info->percentReturn);
+			}
+			tail = tail->prev;
+		}
+	}
+	ret[i] = NULL;
+	return ret;
+}
+
 
 int main() {
 	DoubleList dl = { NULL, NULL };
@@ -115,10 +155,23 @@ int main() {
 		if (dl.head->next == NULL) dl.tail = dl.head;
 	}
 
-	printHeadList(dl.head);
-	//printBackList(dl.tail);
+	//printHeadList(dl.head);
+	printBackList(dl.tail);
 
 	int c = getNrRisky(dl.head, 4);
 	printf("\nRiskier funds: %d", c);
+
+	showCapitalGL(dl.tail);
+
+	Fund* fd;
+	fd = getFund(dl.head, 15500);
+	printData(fd);
+
+	Fund** funds = createArr(dl.head, "A", 1200);
+	int i = 0;
+	while (funds[i]) {
+		printData(funds[i]);
+		i++;
+	}
 
 }
