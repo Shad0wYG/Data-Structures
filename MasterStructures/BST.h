@@ -20,6 +20,7 @@ BSTNode* createBSTNode(Info* inf)
 }
 
 
+
 void addBSTNode(BSTNode** root, Info* inf)
 {
 	if (!(*root))
@@ -35,6 +36,8 @@ void addBSTNode(BSTNode** root, Info* inf)
 			addBSTNode(&(*root)->right, inf);
 	}
 }
+
+
 
 //SRD
 void printInOrder(BSTNode* root)

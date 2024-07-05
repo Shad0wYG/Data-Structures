@@ -1,0 +1,7 @@
+30, 1, 1,Alberto Robert, 0
+17, 2, 3,Ionescu Tudor, 0 
+14, 3, 4,Gabriel Dimitri, 1 
+67, 1, 2,AAAAAAA AAAAAAAA, 0 
+22, 5, 5,asdf jklp, 1 
+90, 1, 7,George, 1 
+81, 8, 6,Fanica Jeni, 1

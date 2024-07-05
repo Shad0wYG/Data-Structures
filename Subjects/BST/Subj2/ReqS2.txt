@@ -1,0 +1,13 @@
+Struct file, attributes: char* id, unsigned int size, bool readonly, char[11] createddate, char* owner
+
+1. BST, at least 7 entries, search key id
+
+2. function prints files with date greater than parameter
+
+3. nrfiles with readonly access (return int)
+
+4. average size of all files in the structure. return in main and print from there
+
+5. function seeks by fileid. increase size by 100% to all files until it reaches the correct one. if there is none with that id it updates all. print to check
+
+6. bst to heap of a specific owner in which priority key is fileid

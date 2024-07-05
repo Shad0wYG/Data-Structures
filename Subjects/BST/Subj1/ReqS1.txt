@@ -1,0 +1,57 @@
+﻿Implementati o aplicatie in limbajul C care implementeaza solutii la probleme de gestionare a comenzilor online ale unui 
+restaurant.
+
+1. Scrieti secventa de cod sursa pentru crearea unei structuri de date de tip Arbore binar de cautare ce contine date 
+aferente comenzilor de mancare. Cheia de cautare utilizata este id_comanda. Inserarea unei comenzi se 
+implementeaza intr-o functie care se apeleaza in secventa de creare a structurii Arbore binar de cautare. Structura 
+Arbore binar de cautare contine minim 10 comenzi incarcate in aplicatie dintr-un fisier de intrare.
+Structura Comanda se va defini astfel incat sa contina minim 7 campuri, astfel: timp_livrare (int), cod_client (int), 
+id_comanda (int); celelalte 4 campuri sunt definite la alegere, din care minim unul este de tip char*.
+Cerinte de implementare:
+ Definire structura Comanda. (0,25p)
+ String-urile preluate din fisier trebuie sa accepte prezenta simbolului blank. (0,25p)
+ Absenta memory leaks. (0,25p)
+ Implementare logica de creare structura Arbore binar de cautare. (0,75p)
+ Populare completa si corecta a structurii Arbore binar de cautare cu date de intrare din fisier. (0,25p)
+ Testare implementare cu afisarea la consola a continutului structurii Arbore binar de cautare. (0,25p)
+
+
+2. Scrieti si apelati functia pentru determinarea comenzilor din structura creata la cerinta 1) care au timpul de livrare mai 
+mare decat o valoare specificata ca parametru de intrare al functiei. Comenzile identificate sunt salvate intr-un vector si 
+NU partajeaza zone de memorie heap cu structura Arbore binar de cautare. Vectorul se returneaza in main() prin tipul 
+de retur sau lista de parametri ai functiei.
+Cerinte de implementare:
+ Definire functie cu parametri de I/O definiti complet si corect. (0,25p)
+ Realizare deep-copy a comenzilor in vector. (0,25p)
+ Implementare logica de determinare si salvare a comenzilor in vector. (1,00p)
+ Populare completa si corecta a vectorului. (0,25p)
+ Testare implementare prin apel de functie si afisare la consola a rezultatului obtinut la apel. (0,25p)
+
+
+3. Scrieti si apelati functia pentru determinarea comenzilor cu cea mai mare prioritate de servire din Arborele binar de 
+cautare. Implementarea presupune copierea comenzilor intr-o structura Heap, unde prioritatea este data de timpul de 
+livrare. Arborele si structura Heap NU partajeaza zone de memorie. Structura Heap se returneaza in main() prin tipul 
+de retur sau lista de parametri ai functiei.
+Cerinte de implementare:
+ Definire functie cu parametri de I/O definiti complet si corect. (0,25p)
+ Implementare mecanism filtrare Heap. (0,50p)
+ Implementare inserare element in Heap. (0,50p)
+ Implementare extragere element din Heap. (0,50p)
+ Populare completa si corecta a structurii Heap. (0,25p)
+ Testare implementare prin apel de functie si afisare la consola a rezultatului obtinut la apel. (0,25p)
+
+
+4. Scrieti si apelati functia pentru determinarea valorii totale a comenzilor la nivel de client. Se iau in considerare 
+comenzile salvate in structura Arbore binar de cautare de la la cerinta 1). Un client poate avea mai multe comenzi la 
+restaurant. Perechile de valori (cod_client, suma_totala) sunt salvate intr-un vector. Vectorul si dimensiunea acestuia 
+se returneaza in main() prin tipul de retur sau lista de parametri ai functiei.
+Cerinte de implementare:
+ Definire functie cu parametri de I/O definiti complet si corect. (0,25p)
+ Determinare valori (cod_client, suma_totala) pentru comenzile obtinute pe baza structurii de la cerinta 1). (0,75p)
+ Implementare logica de creare vector cu valori (cod_client, suma_totala). (1,25p)
+ Populare completa si corecta a vectorului. (0,25p)
+ Testare implementare prin apel de functie si afisare la consola a rezultatului obtinut la apel. (0,25p)
+
+
+5. Scrieti si apelati functiile care dezaloca structurile Arbore binar de cautare, Heap si 2 x Vectori precum si toate 
+structurile auxiliare utilizate in implementarea cerintelor (daca este cazul).
